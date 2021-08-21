@@ -1,0 +1,213 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{amssymb}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{ragged2e}
+\usepackage{boondox-cal}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\begin{document}
+
+
+\title{Approximation of the State of a 2D Manifold Over Time}
+\author{Joseph Spear}
+
+\maketitle
+
+\begin{abstract}
+\justify
+The 2-Dimensional Manifold can be modeled by solving the Wave Equation in 2 Dimensions which may be approximated using the Central Difference Approximation Method. Once the approximation is calculated, the position may be approximated over time using the Fourth Order Runge-Kutta method. This process produces a wave that propagates across the manifold with respect to time. Different stiffness values can be applied to the material which the wave propagates through, which may dampen or amplify the wave once crossing the boundary of the two regions. It is shown that the wave and material stiffness may be "tuned" in order to produce a wave with half the initial amplitude once crossing the boundary of the two regions.
+
+\end{abstract}
+
+
+\begin{multicols}{2}
+\section{Introduction}
+A 2-Dimensional Manifold is any surface that does not intersect with itself. Defined by having a "homeomorphic neighborhood at every point on the surface", the 2-Dimensional manifold represents all possible values in $\mathbb{R}^2$ space (\textit{Encyclopedia of Mathematics}, 2011). A physical manifold does not exist in the 3-Dimensional world, however the 2-D manifold may represent various thin surfaces with different stiffness values related to the material and the thickness of the material. This stiffness value may be adjusted in a 2-D manifold representation to model various real surfaces (i.e. a drum head, surface of the water, piece of paper, etc.) The 2-D manifold is attached at all points to other points nearby, and when one point is affected in a physical surface, the other points will also experience a disturbance in order to try and maintain the integrity of the manifold. 
+
+The same principle is applied to all physical manifolds, as any change to the position of a single point will cause an acceleration to be felt by the surrounding points, which in turn, affect their surrounding points. This propagation is a function of time, and will expand away from the initial point of disturbance until another obstacle (such as a wall or another propagated wave) is encountered. This propagation develops into a pattern which can effectively be modeled as a sinusoidal wave.
+
+This wave's change in position is proportional to it's change in time as follows: (Zill, 719)
+
+\begin{equation}
+    \label{equation1}
+    a^2\frac{\partial^2u}{\partial x^2} = \frac{\partial^2u}{\partial t^2}, \hspace{0.1in} 0 < x < L, \hspace{0.1in} 0 < t
+\end{equation}
+
+This Partial Differential Equation may be expanded to two dimensions by applying the Laplacian of two dimensions instead of a single partial derivative:
+
+\begin{equation}
+    \label{equation2}
+    a^2\nabla u  = \frac{\partial^2u}{\partial t^2}, \hspace{0.1in} 0 < x < L, \hspace{0.1in} 0 < t
+\end{equation}
+
+where
+
+\begin{equation}
+    \label{equation3}
+    \nabla u = \frac{\partial^2u}{\partial x^2} + \frac{\partial^2u}{\partial y^2}
+\end{equation}
+
+and may be solved using separation of variables technique. Once solved, the Central Difference Approximation may be used to find the values of the surrounding points based on the locations and accelerations of the known points. The Central Difference Approximation for the x position of the manifold is as follows: (Lapidus, Pinder, 42)
+
+\begin{equation}
+    \label{equation4}
+    \frac{\partial^2}{\partial x^2}u_{ij}(t) \approx \frac{u_{i+1, j}(t) - 2u_{i, j}(t) + u_{i-1, j}(t)}{\Delta x^2}
+\end{equation}
+
+When performed across the entire manifold, the relative positions of the surrounding points can be found and applied, generating an accurate depiction of the entire manifold. 
+
+This entire process may be expanded across time using the Fourth Order Runge-Kutta (RK4) Approximation method, which will produce the next manifold positions relative to the previous time step. The RK4 method is generated as follows:
+
+\begin{equation}
+    \label{equation5}
+    y_{i+1} = y_i+\frac{\tau}{6}\left(k_1+2k_2+2k_3+k_4\right)
+\end{equation}
+
+where each $k$ value represents another degree of approximation, based on various sub-approximations. This technique is relatively expensive computationally, but yields accurate results for a small number of steps.
+
+
+\section{Validation and Verification}
+
+Since the Wave Equation is essentially just the propagation of a wave over time, it is fair to say that the model should itself look like a wave. While the manifold deals with two dimensions, the fundamental physics is the same as it is in one dimension, and therefore the model will reflect that. In order to verify this, the 2-D standing wave is modeled with different conditions.
+
+\begin{verbatim}
+do i = 1, sizey
+    do j = 1, sizex
+        u((i-1)*sizex + j, 1) = sin((n*PI)/(sizex + 1) * j) * &
+        sin((m*PI)/(sizey + 1) * i)
+    end do
+end do
+\end{verbatim}
+
+The above code is the implementation of the standing wave. $n$ and $m$ are variables which will determine the number of peaks and troughs in the function. For the most basic standing wave, both are set to $1$, and the result is shown in figure 1. In figure 1, the plot represents the initial position of a $16 X 16$ manifold with $n$ and $m$ equal to $1$. The amplitude of the wave is observed to be $1$. The program used to plot every graph in this document was MATLAB R2019b, and the command used to plot the surface was $surf(B)$ where B is the matrix of values at each point on the manifold.
+
+\begin{center}
+\includegraphics[width=3.58in]{StandingWave1.eps}
+\scriptsize{
+Figure 1: Simple standing wave with amplitude of 1.
+}
+\end{center}
+
+As time progresses, the center point of the wave should decrease and then increase sinusoidal-like as the system is a symmetric plane with no dampening factors. This is observed in figure 2, which shows the height of the central point of the manifold.
+
+\begin{center}
+\includegraphics[width=3.58in]{StandingWave_CentralPos.eps}
+\scriptsize{
+Figure 2: Center of the simple standing wave over time.
+}
+\end{center}
+
+Another interesting standing wave is the $n=2$, $m=3$ case, as some of the sinusoidal characteristics are more predominantly visible. Figure 3 shows the $n=2$, $m=3$ case, where the nodes and antinodes are clearly visible:
+
+\begin{center}
+\includegraphics[width=3.58in]{StandingWave1_2.eps}
+\scriptsize{
+Figure 3: Initial position of a Standing Wave with n=2, and n=3.
+}
+\end{center}
+
+After 1 period has propagated (using 600 steps), the following figure is produced by observing down the Y-Axis:
+
+\begin{center}
+\includegraphics[width=3.58in]{StandingWave600_Unimpeaded_1.eps}
+\scriptsize{
+Figure 4: Initial position of a Standing Wave with n=2, and n=3.
+}
+\end{center}
+
+Figure 4 clearly shows the sinusoidal pattern of the wave from the point of view of one axis direction. This validates the program as it shows the wave-like feature expected after a wave has propagated.
+
+One glaring issue with the process defined above, is the fact that choosing a time-step size that is too large will cause the propagation of the wave to get larger over time, which does not mirror reality. This is mitigated with the following code:
+
+\vspace{0.1in}
+
+\begin{verbatim}
+	numperiods = 10, numsteps = 1000 * numperiods
+    period = 2.0*(a*(dble(n)/(sizex+1.0))**2.0 + a &
+    * (dble(m)/(sizey+1.0))**2.0)**(-0.5) 
+    tau = period / (numsteps/numperiods)
+\end{verbatim}
+
+This helps negate the problem by subdividing the time-step based on the number of periods desired, and the number of steps desired. The $1000$ in the first line is an arbitrary number which helps determine the accuracy of the RK4 method by creating smaller steps.
+
+\section{Results}
+
+To test to the affects of the propagated wave, a Transverse Wave is transmitted from one end of the box, shown in Figure 5.
+
+\begin{center}
+\includegraphics[width=3.58in]{TransverseWave_Initial.eps}
+\scriptsize{
+Figure 5: Transverse Wave when Stiffness is multiplied by 4.
+}
+\end{center}
+
+This wave will propagated across a boundary located halfway across the path which the wave travels. This boundary is a location with a higher stiffness, (in this case twice as high), and will lower the amplitude of the wave once it crosses the boundary. This is shown in Figure 6:
+
+\begin{center}
+\includegraphics[width=3.58in]{Wave10000_Impeaded_1.eps}
+\scriptsize{
+Figure 6: Transverse Wave with a change in stiffness.
+}
+\end{center}
+
+When not impeaded by the boundary, the graph takes the form of Figure 7:
+
+\begin{center}
+\includegraphics[width=3.58in]{Wave10000_Unimpeaded_1.eps}
+\scriptsize{
+Figure 7: Transverse Wave when Stiffness is unchanged.
+}
+\end{center}
+
+The position versus time of the manifold in the region where the stiffness changes also yields interesting results. Figure 8 shows the unimpeaded position in the region located at $(3sizeX/4 , sizeY/2)$:
+
+\begin{center}
+\includegraphics[width=3.58in]{TransverseWave_CentralPos_Unimpeaded.eps}
+\scriptsize{
+Figure 8: Central Position of an Unimpeaded Transverse Wave.
+}
+\end{center}
+
+whereas when impeaded with a stiffness of $k=2$, the graph resembles Figure 9:
+
+\begin{center}
+\includegraphics[width=3.58in]{TransverseWave_CentralPos_Impeaded.eps}
+\scriptsize{
+Figure 9: Central Position of a $k=6$ Impeaded Transverse Wave.
+}
+\end{center}
+
+Figure 8 and 9 show that it is possible to change the stiffness of the region in a certain way as to "tune" the amplitude to match a desired ratio of the original amplitude. Through various trials, this was found to be roughly linear in nature, yielding:
+
+\begin{equation}
+    \label{equation6}
+    \frac{k_f}{k_o} \approx \frac{A_o}{A_f}
+\end{equation}
+
+which shows that as you increase the ratio of the stiffness across the boundary, the amplitude decreases with an inverse proportionality. As an example, if an amplitude of $\frac{1}{2}$ is desired in the more stiff region, then the final stiffness ($k_f$) must be twice as large as the original stiffness ($k_o$).
+
+\section{Conclusion}
+By approximating the position of a manifold using the Central Difference Approximation method, a good approximation may be obtained over time using the RK4 method. When confined to a small enough time-step, the wave approximation propagates through the medium much like it would in the physical world. If a specific material would like to be modeled in this program, the stiffness and initial position would be all that is needed to produce a reasonable approximation for the position of every point on the materials throughout the elapsed time. Finer models may also be produced by increasing the size of the x and y values, allowing for an even more realistic simulation, at the expense of increased time complexity.
+
+\end{multicols}
+
+\section{Reference}
+
+\begin{enumerate}
+
+\item Encyclopedia of Mathematics, 2011, https://www.encyclopediaofmath.org/index.php/Two-dimensional\_manifold. Accessed 26 Oct. 2019.
+
+\item The Physics Classroom, 2019, https://www.physicsclassroom.com/class/waves/Lesson-4/Formation-of-Standing-Waves. Accessed 26 Oct. 2019.
+
+\item Zill, Dennis \textit{Advanced Engineering Mathematics: Sixth Edition} Burlington, MA, Jones \& Bartlett Learning, LLC., 2018.
+
+\item Lapidus, Pinder \textit{Numerical Solution of Partial Differential Equations in Science And Engineering} Canada, John Wiley \& Sons, Inc., 1982.
+
+\end{enumerate}
+
+
+
+\end{document}

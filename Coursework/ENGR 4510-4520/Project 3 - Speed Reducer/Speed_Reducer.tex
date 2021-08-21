@@ -1,0 +1,256 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{ragged2e}
+\usepackage{boondox-cal}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\begin{document}
+
+
+\title{10:1 Printed Speed Reducer}
+\author{Joseph Spear}
+
+\maketitle
+
+
+\section{Introduction}
+One of the fundamental requirements for modern day power transmission is through the idea of speed transmission. In many cases, it is very important to be able to increase or decrease the speed at which power is transmitted from the input to the output. One of the most well known examples of this is vehicle transmission, which is used to control the rotation speed of the tires, and in particular, it reduces the input rotational speed using a gearbox.
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Trans1.jpg}}\\
+\scriptsize{
+Figure 1: Transmission Gearbox (\textit{computuneautorepairprovo.com})
+}
+\end{center}
+
+The speed reducer discussed in this paper is a very simplified version of this. The goal of this speed reducer is to reduce the overall rotational speed of the input shaft by 10 in the output. The shaft is a $\frac{1}{4}$in diameter, and the speed is reduced using four transmission pulleys. The Motor used for testing is to be a Pittman Express D.C. Motor, and will be monted to a front face plate where it will connect to the input shaft for initial power transmission. 
+
+\section{Calculations}
+\subsection{Dimensions}
+In order to determine the dimensions of the box and wheels, it is necessary to perform a ratio analysis of the wheels. The fundamental equation will be based off of figure 2:
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Wheels3.jpg}}\\
+\scriptsize{
+Figure 2: Speed Reducer Front
+}
+\end{center}
+
+and is:
+\begin{center}
+$ v = r\omega $ (Equation 1)
+\end{center}
+
+For each wheel, it is important to realize that the angular velocity $(\omega)$ is the same throughout the entire wheel, but the linear velocity at a point on the wheel $(v)$ changes with distance from the center of the circle. This means that it is possible to calculate rotation of the shaft (which is the same diameter for each wheel. This can be done by using figure 3 below:
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Layout1.png}}\\
+\scriptsize{
+Figure 3: Speed Reducer Front
+}
+\end{center}
+
+where $x$ is the speed reduction factor between each wheel in the pulley system. For this design, each small wheel was the same size, and each big wheel was the same size, allowing for $x$ to be the same speed reduction factor. When this is done, it follows that:
+\begin{center}
+$\frac{Original Speed}{x} = Speed_1$\vspace{0.18in}
+
+$\frac{Speed_1}{x} = Speed_2$\vspace{0.18in}
+
+$\frac{Speed_2}{x} = Speed_3$\vspace{0.18in}
+
+$\frac{Speed_3}{x} = Final Speed$
+\end{center}
+
+When each value is substituted back into the previous equation, setting $Original Speed = 10(Final Speed)$, and we solve for $x$:
+
+\begin{center}
+$\frac{Original Speed}{x^4} = Final Speed$ (Equation 2)\vspace{0.18in}
+
+          $x = \sqrt[\leftroot{-3}\uproot{3}4]{10}$          (Equation 3)
+\end{center}
+
+The following calculations converts the speed relationship to a radius relationship, allowing for the wheels to be created with dimensions which would produce the desired speed reduction:
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Calculations1.png}}\\
+\scriptsize{
+Figure 4: Speed Reducer Front
+}
+\end{center}
+
+where $r_{b,o}$,$r_{s,o}$, $r_{b,i}$, and $r_{s,i}$ represent the radius of the big wheel outer surface radius, small wheel outer surface radius, big wheel inner surface radius, and small wheel inner surface radius respectively. From these calculations, the important relationship is discovered:
+
+\begin{center}
+$r_{b,o} = \sqrt[\leftroot{-3}\uproot{3}4]{10} \hspace{0.02in}r_{s,o}$ (Equation 4)
+\end{center}
+
+Here, we have the option of choosing either the small or big wheel size, and scaling the other one appropriately. In this particular design, the small wheel outer surface radius is chosen to be $15mm$ in size, causing the big wheel outer surface radius to be $26.674mm$. The wheel dimensions resulting are below:
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{WheelDimensions.png}}\\
+\scriptsize{
+Figure 5: Speed Reducer Front
+}
+\end{center}
+
+\subsection{Torque Analysis}
+The Torque of the motor is given by the manufacturer to be a constant torque of $0.15N-m$ which is supplied through the shaft and to the initial small wheel. Using this information, it is possible to find the torque that is then transmitted into the second shaft (the one the big wheel in the first pulley and the small wheel in the second pulley are attached to) by utilizing some of the fundamental laws of physics as shown in Figure 6 below:
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Torque1.png}}\\
+\scriptsize{
+Figure 6: Speed Reducer Front
+}
+\end{center}
+
+This process is repeated through all five shafts, giving the following data
+
+ \begin{center}
+     \begin{tabular}{r|c}
+         Shaft & Torque(N-m) \\
+         1 & $0.15$ \\
+         2 & $0.2261$ \\
+         3 & $0.4743$ \\
+         4 & $0.8434$ \\
+         5 & $1.50$ \\
+      \end{tabular}
+ \end{center}
+
+Making the output Torque $T_o = 1.5N-m$ in comparison to the $T_i = 0.15N-m$ input Torque, a tenfold increase. 
+\subsection{Stress and Deflection Analysis}
+Before analyzing the Stress and Deflection, it is important to understand what material is being used as the steel rods. When researching for a $\frac{1}{4}$in diameter steel rod from \textit{mcmaster.com}, the most likely steel used in this project is AISI 1045 Hot-Rolled Steel. This material has the following characteristics:
+
+$ $ \\
+$ S_y = 530MPa$\\
+$ S_u = 630MPa$ \\
+$ E = 200GPa$
+
+For the Stress and Deflection Analysis, much of the information and methodology is derived from Shigley's Mechanical Engineering Design. The calculations are represented by a central force due to the Force caused by the rubber band, measured to be $F_{rb} = 4N$. The following calculations show the stress, factor of safety due to yielding and fatigue, as well as proves that there will be infinite life in this individual shaft.
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Calculations2.png}}\\
+\scriptsize{
+Figure 7: Speed Reducer Front
+}
+\end{center}
+
+This analysis can be used for each one of the shafts as it is is similar force experienced in all of the bars.
+
+Figure 8 below is from Table A-9 (Graph 5) of Shigley's Mechanical Engineering Design, and gives a synopsis of the deflection that the shaft will experience.
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{SimplySupportedBeam.png}}\\
+\scriptsize{
+Figure 8: Speed Reducer Front
+}
+\end{center}
+
+Here the maximum deflection is given to be:
+\begin{center}
+$y_{max} = -\frac{F_{rb}L^3}{48EI}$ (Equation 5)
+\end{center}
+and when the known information of Equation 5 is substituted, we find that the maximum deflection at the center is $y_{max} = 1.381 \cdot 10^{-11}m$. (Fun Fact: The width of an atom is $~10^{-10}m$.
+
+\section{Model}
+Modeling for the Speed Reducer was done using AutoDesk's Fusion360 Software. The following figures are the theoretical dimensions of the speed reducer. 
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Big_Fly_Wheel.png}}\\
+\scriptsize{
+Figure 9: Speed Reducer Front
+}
+\end{center}
+
+Figure 9 shows the size difference between a single large wheel reducing the speed from 10 to 1, with the motor being on the left and the large wheel on the right. From this figure, it is easy to see why multiple pulley systems are necessary. 
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Base.png}}\\
+\scriptsize{
+Figure 10: Speed Reducer Front
+}
+\end{center}
+
+Figure 10 shows the isometric view of the speed reducer excluding the walls and top and including the motor. This view helps give comparative perspectives of the component sizes relative to the rest of the box.
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{SystemDimensions.png}}\\
+\scriptsize{
+Figure 11: Speed Reducer Front
+}
+\end{center}
+
+Figure 11 gives the overhead and side views, annotated and with dimensions for viewing ease. With this view, it is easier to perform any necessary system calculations.
+
+From this model, it is possible to convert the Fusion360 file to a .stl file which may be used in a MakerBot software to 3D print the entire box. This would have been possible, but the decision was made to use wood construction for the housing unit, which caused slight deviations from the 3D model. The most significant change from the original model was the replacement of the small shaft supports with an interior wall which would be the stable points for the shaft and bushings. In addition to this, a mounting plate was added to the front of the input shaft for the motor to securely attach.
+
+\section{Assembly}
+\subsection{Construction}
+This speed reducer box is made of wood, having a base and four walls as well as four internal support walls. The $\frac{1}{4}$in diameter metal shafts are attached to the front and back walls, as well as the internal supports. On the walls, there are $5$ in-line holes, roughly $0.3$ in diameter which are used to mount a metal bushing which the shaft is then inserted in to. The $5$ holes are used to give room in the event of an error in assembly and another, slightly wider hole needs to be used. The motor mount is also made of wood and is screwed into place right in front of the input shaft. This allows the motor to be attached without spinning in place. This can be seen in Figure 12.
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Box2.jpg}}\\
+\scriptsize{
+Figure 12: Speed Reducer Front
+}
+\end{center}
+
+On the shafts are the fly wheels, attached using a press fit method with one wheel attached to another wheel via rubber band. Each transmission pulley has the input wheel being the smaller wheel and the output wheel being the larger wheel. The larger wheel in the first pulley system is connected to the smaller wheel in the second transmission system and so on through all four pulley systems. 
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Box1.jpg}}\\
+\scriptsize{
+Figure 13: Speed Reducer 
+}
+\end{center}
+
+To manufacture the wood, drill presses and circular saws are used. A hole borer is also used to make holes slightly larger when necessary. The wheels are made from additive material in a 3D printing machine. The total time to print all eight wheels is approximately four hours. 
+\subsection{Construction Errors}
+Two of the biggest problems faced during construction was with the screws and cutting. When trying to screw the plates together, a pilot hole was made to create a path for the screw to go down, and many times drilling this out of the wood would cause splitting of the wood. Another issue was that the screws used were fairly large in comparison to the wood and the pilot hole, causing a break in the wood around the screw, which is easily visible in some places 
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Box4.jpg}}\\
+\scriptsize{
+Figure 14: Speed Reducer 
+}
+\end{center}
+
+The other major issue in construction is the circular saw blade width was not easy to take into account, and therefore slight errors in lengths accumulated. In the figure below, you can see that this caused a wall longer than necessary.
+
+\begin{center}
+\fbox{\includegraphics[width=4.7in]{Box5.jpg}}\\
+\scriptsize{
+Figure 15: Speed Reducer 
+}
+\end{center}
+
+
+\section{Bill of Materials}
+The cost of the speed reducer can be broken up into three parts: The housing, the additive components, and the non-additive components.
+
+\begin{center}
+\fbox{\includegraphics[width=6.7in]{BillOfMaterials.png}}\\
+\scriptsize{
+Figure 16: Transmission Gearbox (\textit{computuneautorepairprovo.com})
+}
+\end{center}
+
+
+
+\section{References}
+
+\begin{enumerate}
+
+\item McMaster-Carr, 2021, https://www.mcmaster.com/. Accessed 21 Apr. 2021.
+
+\item Budynas, Richard \textit{Shigley's Mechanical Engineering Design, 11th Edition} New York, US, McGraw-Hill Education, 2020.
+
+\item Budynas, Richard \textit{Shigley's Mechanical Engineering Design, 10th Edition} New York, US, McGraw-Hill Education, 2015.
+
+\end{enumerate}
+
+
+\end{document}

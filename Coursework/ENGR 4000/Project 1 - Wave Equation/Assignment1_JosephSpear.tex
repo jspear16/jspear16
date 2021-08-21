@@ -1,0 +1,347 @@
+\documentclass{article}
+
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{ragged2e}
+\usepackage{boondox-cal}
+
+\begin{document}
+
+
+\title{Validation of the Wave equation using Numerical Approximations}
+\author{Joseph Spear}
+
+\maketitle
+
+
+\begin{abstract}
+\justify
+The solutions to the 3 Dimensional Wave equation may be found for Hydrogen as a closed form expression depending only on the radius r and varying for different integer values of n and l. In order to estimate the values of higher order n and l values, as well as any initial r value desired, a numerical method will be needed to solve the second order differential equation. The method used is the Verlet Method. When plotted against the closed form expression of the radial equation, the Verlet method produces values with an error of no more than 1.75 at an initial separation of 100 bohr radii, and 100000 steps.
+
+\end{abstract}
+
+
+\begin{multicols}{2}
+\section{Introduction}
+Nearing the end of the 19th century, after many great achievements in thermophysics, electricity, and magnetism, and a lack of any profound shift in any understanding of physics as a whole, the world was beginning to feel as if the study of physics was rapidly slowing down. Lord Kelvin is attributed to saying "There is nothing new to be discovered in physics now. All that remains is more and more precise measurement." around the year 1900. All this was shortly changed with the groundbreaking new theory known as quantum mechanics. Over the next century, the world's greatest scientists would embark on the quest to understanding the world of the quantum realm.
+
+In quantum mechanics, the wavefunction or wave equation represents the probability that the particle will be located at a certain point in space. The larger the value, the more likely it is to find a particle at any moment in time at that point. One way to describe the wavefunction of the particle was developed in 1925 by Erwin Schrödinger and has subsequently been termed the Schrödinger wave equation (Burkhardt, Leventhal, 74):
+
+\begin{equation}
+    \label{equation1}
+    \small{\left[ -\frac{{\hbar}^2}{2m_e} \frac{d^2}{dr^2} + \frac{\mathcal{l} \left(\mathcal{l} + 1\right){\hbar^2}}{2m_er^2} + V(r) \right] u_{\mathcal{n}\mathcal{l}}(r) = E_{\mathcal{n}\mathcal{l}}u_{\mathcal{n}\mathcal{l}}(r)  }
+\end{equation}
+
+\vspace{0.1in}
+
+This form has been simplified from the original Schrödinger equation as only the radial portion of the equation affects the potential of the particles. The potential is independent of the orientation of the two particles in a Hydrogen system. (Burkhardt, Leventhal, 74) Using this second order differential equation, various different relationships can be derived for the potential energies of a hydrogen atom at different n and l states. These equations are rather simple in comparison to those of higher elements. 
+
+
+
+
+\subsection{Numerical Analysis}
+Numerical Analysis techniques have been in use for thousands of years, dating back as far as the ancient Babylonians. These techniques were used for various purposes, but around the 17th century, Numerical Methods began to develop, using Calculus, and provided for a great number of uses. Method's such as Newton's method, Linear Interpolation,  Euler's method Lagrange interpolation polynomial, Gaussian elimination, and many others began to be successfully used. Numerical Methods can be categorized into two types: direct methods, and iterative methods. A direct method would be like Gaussian elimination which yields an exact solution after a finite number of computations. An iterative method, like Euler's method, does not yield an exact solution but an approximated solution. These approximated solutions vary in accuracy depending on the number of iterations used.
+
+All iterative methods require initial conditions, such as an x or y coordinate, a 1st or 2nd derivative, or even more complicated expressions involving multiple initial conditions. Some iterative methods, like the Verlet method or the Runge-Kutta method, require multiple initial steps before they can even begin, and therefore some methods may be required in order to use other methods. Each iterative method has different implementations, different initial conditions, and different degrees of accuracy, and therefore it is important to choose the method that best fits the situation. When deciding on which method to use, some key things to consider is the complexity of the algorithm, the accuracy achieved with each iteration, and the versatility of the method.
+
+
+\section{The Wave Equation}
+The use of the Schrödinger equation has very many applications. One of which is the ability to tell the probability of a particle being found in a certain location relative to any point. While it would be nice to have a closed form expression of the solution to the Schrödinger equation for all particles, the complexity of finding closed form solutions to higher order elements becomes increasingly difficult, and at a certain point, impossible all together. This is why numerical approximations would be needed to solve for the wave equation in equation (1), as the second order differential equation becomes too complicated to solve by hand.
+
+Algebraically manipulating equation (1), we can solve for the second derivative of the potential energy with respect to the separation distance:
+
+\begin{equation}
+\label{equation2}
+\frac{d^2u(r)}{dr^2} = -\frac{2m_e}{{\hbar}^2}\left[E + \frac{zke^2}{r} - \frac{{\hbar}^2\mathcal{l}\left(\mathcal{l}+1\right)}{2m_er^2}\right]u(r)
+\end{equation}
+
+\vspace{0.1in}
+
+Using equation (2) as a closed form of the second derivative in terms of $u(r)$ and $r$, it can be used to approximate the solution to the differential equation using numerical methods. It is also known that for a spherically symmetrical hydrogen atom, the potential energy of the wave function is:
+
+\begin{equation}
+\label{equation3}
+u(r) = R_{\mathcal{n}\mathcal{l}}(r) \cdot r
+\end{equation}
+
+\vspace{0.1in}
+
+where $\mathcal{n}$ is the principal quantum number, and $\mathcal{l}$ is the angular momentum, both of which take integer values. $r$ is the separation between one of the electrons and the nucleus of the hydrogen atom.
+
+In this study, the techniques of Euler's method and Verlet's method will be tested in order to approximate the solution to different $\mathcal{n}$ and $\mathcal{l}$ values of the wave equations for Hydrogen.
+
+These exact solutions for the Hydrogen wave equation are:
+
+\begin{center}
+\includegraphics[width=3.58in]{Exact_Solutions.png}
+\scriptsize{
+Figure 1: Exact Solutions to the Hydrogen Radial Equation (Griffiths, Darrell, 156)
+}
+\end{center}
+
+\section{Implementation of the Numerical Methods}
+Both Euler's method and Verlet's method can be used to approximate this solution, as both require a function a derivative of some kind. While both methods can approximate the same function, the accuracy and complexity of the Verlet method is much better than that of Euler's.
+
+\subsection{Euler's Method}
+If given a function $y = f(x)$, then Euler's method may be used in the form (Gautschi, 274):
+
+\begin{equation}
+\label{equation4}
+y_{i+1} = y_i + \tau \cdot y^{\prime}_i 
+\end{equation}
+
+\vspace{0.1in}
+
+where $i$ represents any particular step, $\tau$ represents the step size, $y_{i+1}$ represents the value at the next step, and $y'_i$ represents the derivative of the original time step. This method may be used by finding data for the next time step, and then using that information to reiterate the process until a satisfactory answer is achieved.
+
+It is clear that the value of the derivative of the function at various points will need to be known, but we do not have a closed expression for the derivative of the potential. We do, however, have a closed form for the second derivative. Therefore, using the same concepts of Euler's method, we can derive another expression to approximate the derivative at the necessary points:
+
+\begin{equation}
+\label{equation5}
+y^{\prime}_{i+1} = y^{\prime}_i + \tau \cdot y^{\prime\prime}_i
+\end{equation}
+
+\vspace{0.1in}
+
+where the symbolism is analogues to that of equation (4). Now, the second derivative (which may be analytically calculated) can be used to find the value of the first derivative at a new time step, which in turn, can then be used to find the position at the new time step. When coded in a computer, the form is:
+
+\small{
+\begin{verbatim}
+
+do i = numsteps, 1, -1
+    r(i) = r0 - tau*(numsteps-i)
+    u2p(i)=(-2*me / (hbar**2))*(E+(z*k* &
+           (echarge**2)/r(i))-((hbar**2)*l*(l+1)/ &
+           (2*me*(r(i)**2)) ))*u(i)
+    u1p(i-1) = u1p(i) - tau * u2p(i)
+    u(i-1) = u(i) - tau * u1p(i)
+end do
+    
+\end{verbatim}
+}
+
+In the Fortran 95 code above, u2p represents the second derivative of u, u1p is the first derivative, u is the potential energy, and r is the separation between particles. By preforming this do loop, the data may be stored in 4 different arrays which are output to a file.
+
+\subsection{Verlet's Method}
+While the Euler's method is accurate, when given a large number of steps, the Verlet method has a few advantages. It's form is:
+
+\begin{equation}
+\label{equation6}
+y_{i+2} = 2y_{i+1} - y_i +(\tau^2) \cdot y^{\prime\prime}_{i+1} 
+\end{equation}
+
+which has a few different advantages compared to Euler's method. First, using Verlet's method does not require the first derivative the needed function, only the second. This improves the complexity as there is one less value which needs to be calculated. Secondly, while the initial conditions required do include the value two steps before the new step, it provides a much more accurate approximation with fewer steps. The code for this approximation is:
+
+\small{
+\begin{verbatim}
+
+do i = numsteps, 2, -1
+    r(i - 1) = r0 - tau*(numsteps - i + 1)    
+    u2p(i-1)=(-2*me / (hbar**2))*(E+(z*k* &
+           (echarge**2)/r(i-1))-((hbar**2)*l*(l+1)/ &
+           (2*me*(r(i-1)**2)) ))*u(i-1)
+    u(i-2) = 2.0*u(i-1) - u(i) + (tau**2.0)*u2p(i-1)       
+end do
+
+\end{verbatim}
+}
+
+where the symbols represent the same quantities as those in the Euler's method code.
+
+\section{Results}
+The data produced from both methods were ploted using gnuplot, as well as compared in a subroutine to create an error calculation. As stated earlier with figure 1, all of the exact solutions are plotted with respect to a specific $\mathcal{n}$ and $\mathcal{l}$, and then approximated using Euler and Verlet. All figures are those of the Verlet method.
+
+\vspace{0.1in}
+
+\end{multicols}
+
+\begin{center}
+\includegraphics[width=\textwidth]{All-100000-100.png}
+\scriptsize{
+Figure 2: $(n=1 , l=0)$ to $(n=4 , l=3)$ exact and approximate solutions
+}
+\end{center}
+
+\vspace{0.1in}
+
+\normalsize{
+In figure 1, the particles start a distance of $r_o = 100$ bohr radii away and 100,000 steps of the loop are preformed. The particles are drawn together by the force caused in the second derivative term. As the particles get closer, the absolute value of the energy begins to increase, around the $r=20$ point where significant changes are apparent. To demonstrate the accuracy of the Verlet Method with 100,000 steps, other plots are created.
+}
+
+\vspace{0.1in}
+
+
+
+\begin{center}
+\includegraphics[width=\textwidth]{Both_10-100000-15.png}
+\scriptsize{
+Figure 3: $(n=1 , l=0)$ exact and approximate solutions
+}
+\vspace{0.1in}
+
+\includegraphics[width=\textwidth]{Both_21.png}
+Figure 4: $(n=2 , l=1)$ exact and approximate solutions
+
+\vspace{0.1in}
+
+\includegraphics[width=\textwidth]{Both_32.png}
+Figure 5: $(n=3 , l=2)$ exact and approximate solutions
+
+\vspace{0.1in}
+
+\includegraphics[width=\textwidth]{Both_43.png}
+Figure 6: $(n=4 , l=3)$ exact and approximate solutions
+
+\end{center}
+
+\vspace{0.1in}
+
+\normalsize{
+As can be noticed, the approximate solution is nearly the same as that of the exact solution for these values. When changing the number of steps and the initial radius, the approximations may verge off at certain n and l combinations, as shown below in figure 7:
+}
+
+\includegraphics[width=\textwidth]{Both_Big_Small-50-20.png}
+\scriptsize{
+\begin{center}
+Figure 7: $(n=4 , l=3)$ exact and approximate solutions where $r_o = 15$
+\end{center}
+}
+
+\vspace{0.1in}
+
+\includegraphics[width=\textwidth]{Uvsr_10_Z123.png}
+\scriptsize{
+\begin{center}
+Figure 8: $(n=1 , l=0)$ exact and approximate solutions for Z = 1,2 and 3
+\end{center}
+}
+
+\begin{multicols}{2}
+\normalsize{
+An important aspect of wave mechanics is the ability to know the average value at which the particle may be found in any given experiment. In quantum mechanics, this is known as the expectation value, and is found through the formula (Morrison, 30):
+}
+
+\begin{equation}
+\label{equation7}
+\left\langle r \right\rangle = \int_{0}^{r_o}r(u(r))^2dr
+\end{equation}
+
+This equation tells us the average location the electron will be found based on the wave function. Coded as:
+
+\small{
+\begin{verbatim}
+do i = 1, numsteps, 2
+    expectation = (r(i)*u(i)**2) + &
+    4.0*(r(i+1)*u(i+1)**2) + &
+    (r(i+2)*u(i+2)**2) + expectation
+end do
+
+expectation = expectation * tau / 3.0
+\end{verbatim}
+}
+
+\normalsize{
+the expectation values produced are as follows:
+}
+
+\end{multicols}
+
+\begin{table}[h!]
+    \caption{Table 1: Expectation Values}
+    \vspace{0.05in}
+    \label{tab:table1}
+    \begin{center}
+    \begin{tabular}{l|c|r} 
+      $\mathcal{n}$ &  $\mathcal{l}$ & $\left\langle r \right\rangle$ \hspace{0.53in} \\
+      \hline
+      1 & 0 & 1.4999998769956868\\
+      2 & 0 & 5.9999998759915671\\
+      2 & 1 & 4.9999999895915748\\
+      3 & 0 & 13.499999875636156\\
+      3 & 1 & 12.499999969055123\\
+      3 & 2 & 10.499999951885398\\
+      4 & 0 & 23.999999888905606\\
+      4 & 1 & 22.999999961686498\\
+      4 & 2 & 20.999999851837153\\
+      4 & 3 & 17.584386462512672\\
+    \end{tabular}
+    \end{center}
+\end{table}
+
+\begin{multicols}{2}
+\normalsize{
+Simpson's rule is used in the code to approximate the Integration step of the approximation, which adds another slight error in the final results as it is another approximation technique.
+}
+\section{Validation and Verification of the Methods}
+While the visual evidence is a good indicator of whether an approximated solution is accurate or not, it is not possible to produce exact solutions to the wave equation for Z values much greater than 1. In order to provide another basis for accuracy, an error calculation is used to give quantitative data on the approximations relative to the few closed form expressions already discussed earlier. To calculate the error of a function, the following equation is used:
+
+\begin{equation}
+\label{equation8}
+Error = \int_0^{r_0}\left( u_e(r) - u_a(r)\right)^2 dr
+\end{equation}
+
+where $u_e(r)$ and $u_a(r)$ are the exact solution and the approximated solution respectively. Squaring the difference guarantees that there will be a positive value for each point in time, allowing for the magnitude of the error to be summed together properly.  When calculated for the first few n and l values in a hydrogen atom, the following table is produced:
+
+\end{multicols}
+
+\begin{table}[h!]
+    \caption{Table 2: Error Values}
+    \vspace{0.05in}
+    \label{tab:table2}
+    \begin{center}
+    \begin{tabular}{l|c|r} 
+      $\mathcal{n}$ &  $\mathcal{l}$ & $Error$ \hspace{0.53in} \\
+      \hline
+      1 & 0 & 0.99600778284432201\\
+      2 & 0 & 1.7495000171425605\\
+      2 & 1 & 0.58333332378953473\\
+      3 & 0 & 0.85170398667631098\\
+      3 & 1 & 1.2469135777765874\\
+      3 & 2 & 0.79259259617852529\\
+      4 & 0 & 1.1561875047503376\\
+      4 & 1 & 0.88541666114439499\\
+      4 & 2 & 1.1312499976281167\\
+      4 & 3 & 0.88091591648467371\\
+    \end{tabular}
+    \end{center}
+\end{table}
+
+\normalsize{
+\begin{center}
+\vspace{-0.4in}
+Average Error = 1.02738213644109
+\end{center}
+}
+
+\begin{multicols}{2}
+\normalsize{
+When calculating the average error of the first 10 solutions to the radial equation, recall that this error is spanning $100$ bohr radii, and is produced with $100,000$ steps for each n and l combination.
+
+When increasing the Z values, the graphs tended to look like the $Z=1$ case except with increasing shifts towards the $r=0$ location. This gave a compressed look to all of the functions as they were squeezed and elongated closer to the origin. Referring to figure (7), there is an obvious tendency towards the elongation as the Z values increase.
+
+One situation where the code produces very inaccurate solutions information, is when there are a high number of steps and the r values approach $0$. In this scenario, many second derivatives of higher n and l valued wave functions begin to increase extremely rapidly when $(1 >> r < 0)$. 
+
+Another situation where the code does not produce accurate results, is when $r_0 < 18$. When the initial r value begins at too low of a value, the assumption that the first and second values of the potential function and it's derivative approximate to $0$ is increasingly inaccurate. This can be seen in the figures above as around $r=18$, some of the functions begin to diverge from $u=0$ and thus, the assumptions that $u_N=u_{N-1}=u^{\prime}_N=u^{\prime}_{N-1}=0$ is invalid.
+}
+
+\section{Conclusion}
+While there are closed form equations for the solution to the radial wave equation for the Hydrogen atom, the need for numerical techniques to solve these problems are still relevant. The closed form equations give us an opportunity to verify the approximation from the Euler or Verlet method in certain cases, giving us a good method to use in other situations. Euler's and Verlet's methods will both give decent approximation, however, with the limitations of Euler's method, the Verlet method would be much better in the situation of two particles interacting with each other. With these approximations, higher order Z valued wave equations can be found to a high degree of accuracy.
+\end{multicols}
+
+\section{References}
+
+\begin{enumerate}
+\item Morrison, John C. \textit{Modern Physics for Scientists and Engineers} Burlington, MA, Academic Press, 2010.
+
+\item Burkhardt, Charles and Jacob Leventhal. \textit{Topics in Atomic Physics} NY, Springer Scientific+Business Media, Inc, 2006.
+
+\item Foot, Christopher J. \textit{Atomic Physics} Oxford, UK, Oxford University Press, 2005.
+
+\item Gautschi, Walter \textit{Numerical Analysis: An Introduction} Boston, Birkhauser Boston, 1997.
+
+\item Griffiths, David J., and Darrell F. Schroeter \textit{Introduction Quantum Mechanics: Third Edition} Cambridge, UK, Cambridge University Press, 2017.
+
+\end{enumerate}
+
+\end{document}
