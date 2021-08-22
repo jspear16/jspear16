@@ -1,6 +1,7 @@
 # Joseph Spear 9 July 2021
 #
-# This is the Setup file for the SIOS-C 11B Project. All prerequisite installations are downloaded and installed with this script.
+# This is the Setup file, which installs the necessary programs for an embedded project. 
+# All prerequisite installations are downloaded and installed with this script.
 # Make sure to give this file execution privilages with chmod +x SETUP.sh
  
 
@@ -39,7 +40,7 @@ case "${1}" in
 
     "")
 
-        echo -e "------------------------------------------\n| Setup for SIOS-C 11B is now beginning  |\n------------------------------------------\n"
+        echo -e "------------------------------------------\n| Setup is now beginning  |\n------------------------------------------\n"
 
         # TODO Uninstall any possible ARM compiler
 
