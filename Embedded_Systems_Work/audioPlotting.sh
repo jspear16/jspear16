@@ -1,7 +1,7 @@
 # Joseph Spear 8/19/21
 #
-# This file will take in information based on the SIOS 11B Data Transmission API, parse the important sound data,
-# convert the hex string into a base 10 integer, and then plot them using gnuplot
+# This file will take in a specific string format containing hex data, parse the important data,
+# convert the hex string into a base 10 integer, and then plot the data using gnuplot
 
 
 
