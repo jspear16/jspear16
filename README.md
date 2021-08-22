@@ -15,6 +15,8 @@ Other interests include:
 - Traveling
 - Hiking
 
+You can contact me at joseph.spear98@outlook.com
+
 ## Repository Contents
 This GitHub page will include all substantial work related to my education, careers, and hobbies in the Engineering and Computer Science fields. 
 There are a few directories in this repository used for the organization of my work. They are as follows:
