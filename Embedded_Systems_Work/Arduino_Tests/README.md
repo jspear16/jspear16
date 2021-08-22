@@ -1,0 +1,4 @@
+# Project Description
+The purpose of this project was to combine a few different electronic components and to create a machine which can be pointed at an object, and give the distance from the machine to that object. This project has thorough documentation found inside of the **Arduino_Tests** directory. In this directory, there are various .cpp, .ino, and .md files. All of these are related to the *Seven_Segment_Display* and the *LCD_Display* projects, both of which perform the same task, just with different displays.
+
+The information is further explained using the doxygen documentation. To get to the initial page of the doxygen documentation, go to the file **Arduino_Tests/Dox--Arduino_Tests/html/index.html** and this will take you to the index of the documentation.

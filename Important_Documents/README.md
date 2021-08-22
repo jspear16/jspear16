@@ -1,3 +1,3 @@
-# Important Documents
+# Contents
 This directory contains:
 - My Resume
