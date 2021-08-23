@@ -16,9 +16,9 @@ This class was focused on teaching the different data structures which can be us
 
 
 ## CSCI 4805
-Computer Science Capstone (UNINISHED)
+Computer Science Capstone
 
-This class is currently ongoing as of 4/27/21. The focus of this class was to have small groups pool their expertise and knowledge together for a large, semester-long project aimed at providing experience for real-world software development.
+The focus of this class was to have small groups pool their expertise and knowledge together for a large, semester-long project aimed at providing experience for real-world software development. My groups idea was to make a simple circuit designer to include a functional graphical user interface and generate a simple printable circuit board trace outline based on the user input.
 
 
 ## ENGR 4000
@@ -30,7 +30,7 @@ This class was focused on utilizing the fundamental understandings of programmin
 ## ENGR 4510-4520
 Senior Engineering Design I & II
 
-These two classes were focused on the Engineering Design process and applying much of what we have learned throughout our time in the Engineering Physics program to to real world problems. 
+These two classes were focused on the Engineering Design process and applying much of what we have learned throughout our time in the Engineering Physics program to to real world problems. The year long project was a collaborative project with Hankook Tires to develop a solution to the material waste of the plant.
 
 
 
