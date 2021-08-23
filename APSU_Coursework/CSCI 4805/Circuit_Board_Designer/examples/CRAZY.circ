@@ -1,0 +1,137 @@
+{
+    "components": {
+        "component_0": {
+            "id": 0,
+            "component_type": "Resistor",
+            "label": "r1",
+            "schem_position": [
+                1667.0,
+                1040.0
+            ],
+            "schem_orientation": 0,
+            "pcb_position": [],
+            "connections": {
+                "0_0": [
+                    "3_0"
+                ],
+                "0_1": [
+                    "1_1",
+                    "3_1"
+                ]
+            }
+        },
+        "component_1": {
+            "id": 1,
+            "component_type": "Resistor",
+            "label": "r2",
+            "schem_position": [
+                1773.0,
+                712.0
+            ],
+            "schem_orientation": 0,
+            "pcb_position": [],
+            "connections": {
+                "1_0": [
+                    "2_1"
+                ],
+                "1_1": [
+                    "0_1"
+                ]
+            }
+        },
+        "component_2": {
+            "id": 2,
+            "component_type": "Resistor",
+            "label": "r3",
+            "schem_position": [
+                1499.0,
+                710.0
+            ],
+            "schem_orientation": 0,
+            "pcb_position": [],
+            "connections": {
+                "2_0": [
+                    "4_1"
+                ],
+                "2_1": [
+                    "1_0"
+                ]
+            }
+        },
+        "component_3": {
+            "id": 3,
+            "component_type": "Resistor",
+            "label": "r4",
+            "schem_position": [
+                1595.0,
+                883.0
+            ],
+            "schem_orientation": 0,
+            "pcb_position": [],
+            "connections": {
+                "3_0": [
+                    "0_0",
+                    "4_0"
+                ],
+                "3_1": [
+                    "0_1"
+                ]
+            }
+        },
+        "component_4": {
+            "id": 4,
+            "component_type": "VoltageSource",
+            "label": "v1",
+            "schem_position": [
+                1068.0,
+                704.0
+            ],
+            "schem_orientation": 0,
+            "pcb_position": [],
+            "connections": {
+                "4_0": [
+                    "3_0"
+                ],
+                "4_1": [
+                    "2_0"
+                ]
+            }
+        }
+    },
+    "comments": {},
+    "paths": [],
+    "last_runs_score": -1,
+    "curr_runs_score": -1,
+    "target_score": 0.5,
+    "pin_placement_dict": {},
+    "connections_list": [
+        [
+            "4_1",
+            "2_0"
+        ],
+        [
+            "2_1",
+            "1_0"
+        ],
+        [
+            "1_1",
+            "0_1"
+        ],
+        [
+            "0_1",
+            "3_1"
+        ],
+        [
+            "0_0",
+            "3_0"
+        ],
+        [
+            "3_0",
+            "4_0"
+        ]
+    ],
+    "area_weight": 0.3,
+    "path_length_weight": 0.7,
+    "n_grid_spaces": 5,
+    "a_star_grid_padding": 4
+}

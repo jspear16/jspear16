@@ -5,8 +5,10 @@ This project was a student-group picked project with the goal of producing a bas
 ![image](https://user-images.githubusercontent.com/51432157/116426161-7b7e1f80-a808-11eb-89c1-912035435541.png)
 
 
-This project is unfinished as it is a current project. The link to this projects repository is here:
+The directory **Circuit_Board_Designer** contains the source code and documentation for the project.
 
-https://github.com/jspear16/Circuit-Board-Designer.git
+The link to the original project repository is here:
+
+https://github.com/CinnaKenToast/Circuit-Board-Designer
 
 

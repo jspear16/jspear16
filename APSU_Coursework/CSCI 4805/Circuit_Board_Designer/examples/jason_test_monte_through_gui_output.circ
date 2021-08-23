@@ -1,0 +1,219 @@
+{
+    "components": {
+        "component_0": {
+            "id": 0,
+            "component_type": "Resistor",
+            "label": "R1",
+            "schem_position": [
+                1326.0,
+                823.0
+            ],
+            "schem_orientation": 0,
+            "pcb_position": [
+                [
+                    4,
+                    5
+                ],
+                [
+                    3,
+                    5
+                ]
+            ],
+            "connections": {
+                "0_0": [
+                    "2_0"
+                ],
+                "0_1": [
+                    "1_0"
+                ]
+            }
+        },
+        "component_1": {
+            "id": 1,
+            "component_type": "Capacitor",
+            "label": "C1",
+            "schem_position": [
+                1570.0,
+                827.0
+            ],
+            "schem_orientation": 0,
+            "pcb_position": [
+                [
+                    3,
+                    3
+                ],
+                [
+                    3,
+                    4
+                ]
+            ],
+            "connections": {
+                "1_0": [
+                    "0_1"
+                ],
+                "1_1": [
+                    "2_1"
+                ]
+            }
+        },
+        "component_2": {
+            "id": 2,
+            "component_type": "VoltageSource",
+            "label": "V1",
+            "schem_position": [
+                1428.0,
+                977.0
+            ],
+            "schem_orientation": 0,
+            "pcb_position": [
+                [
+                    5,
+                    2
+                ],
+                [
+                    5,
+                    3
+                ]
+            ],
+            "connections": {
+                "2_0": [
+                    "0_0"
+                ],
+                "2_1": [
+                    "1_1"
+                ]
+            }
+        }
+    },
+    "comments": {},
+    "paths": [{
+            "path_nodes": [
+                [
+                    3,
+                    5
+                ],
+                [
+                    2,
+                    5
+                ],
+                [
+                    2,
+                    4
+                ],
+                [
+                    2,
+                    3
+                ],
+                [
+                    3,
+                    3
+                ]
+            ],
+            "length": 40,
+            "path_id": "0_1->1_0"
+        },
+        {
+            "path_nodes": [
+                [
+                    3,
+                    4
+                ],
+                [
+                    4,
+                    4
+                ],
+                [
+                    4,
+                    3
+                ],
+                [
+                    5,
+                    3
+                ]
+            ],
+            "length": 30,
+            "path_id": "1_1->2_1"
+        },
+        {
+            "path_nodes": [
+                [
+                    4,
+                    5
+                ],
+                [
+                    5,
+                    5
+                ],
+                [
+                    5,
+                    4
+                ],
+                [
+                    6,
+                    4
+                ],
+                [
+                    6,
+                    3
+                ],
+                [
+                    6,
+                    2
+                ],
+                [
+                    5,
+                    2
+                ]
+            ],
+            "length": 60,
+            "path_id": "0_0->2_0"
+        }
+    ],
+    "last_runs_score": -1,
+    "curr_runs_score": -1,
+    "target_score": 0.75,
+    "pin_placement_dict": {
+        "0_0": [
+            4,
+            5
+        ],
+        "0_1": [
+            3,
+            5
+        ],
+        "1_0": [
+            3,
+            3
+        ],
+        "1_1": [
+            3,
+            4
+        ],
+        "2_0": [
+            5,
+            2
+        ],
+        "2_1": [
+            5,
+            3
+        ]
+    },
+    "connections_list": [
+        [
+            "0_1",
+            "1_0"
+        ],
+        [
+            "1_1",
+            "2_1"
+        ],
+        [
+            "0_0",
+            "2_0"
+        ]
+    ],
+    "area_weight": 0.3,
+    "path_length_weight": 0.7,
+    "n_grid_spaces": 4,
+    "a_star_grid_padding": 4
+}

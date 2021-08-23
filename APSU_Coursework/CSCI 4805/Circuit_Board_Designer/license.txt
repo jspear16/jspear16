@@ -1,0 +1,25 @@
+Wire Img: Icon made by Freepik from www.flaticon.com
+Resistor Img (add component button): Icon made by Freepik from www.flaticon.com
+
+circuit.png: Icon made by Pixel perfect from www.flaticon.com
+delete.png: Icon made by Pixel perfect from www.flaticon.com
+cut.png: Icon made by Good Ware from www.flaticon.com
+tag.png: Icon made by Gregor Cresnar from www.flaticon.com
+comment.png: Icon made by Freepik from www.flaticon.com
+remove.png: Icon made by Becris from www.flaticon.com
+close.png: Icon made by Pixel perfect from www.flaticon.com
+spot.png: Icon made by Pixel perfect from www.flaticon.com
+menu.png: Icon made by Pixel perfect from www.flaticon.com
+paintbrush: Icon made by Freepik from www.flaticon.com
+files.png: Icon made by Smartline from www.flaticon.com
+sketch.png: Icon made by Smartline from www.flaticon.com
+file.png: Icon made by Smartline from www.flaticon.com
+blueprint.png: Icon made by Smartline from www.flaticon.com
+floppy-disk.png: Icon made by Those Icons from www.flaticon.com
+prototype.png: Icon made by wanicon from www.flaticon.com
+add-searching.png: Icon made by Freepik from www.flaticon.com
+delete-searching.png: Icon made by Freepik from www.flaticon.com
+home-searching.png: Icon made by Freepik from www.flaticon.com
+
+Save As: https://www.visualpharm.com/free-icons/save%20as-595b40b85ba036ed117dafd9
+Save: https://visualpharm.com/free-icons/save-595b40b85ba036ed117de18e

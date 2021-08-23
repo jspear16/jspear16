@@ -1,0 +1,21 @@
+<RCC>
+  <qresource prefix="img">
+    <file>blueprint.png</file>
+    <file>circuit.png</file>
+    <file>close.png</file>
+    <file>comment.png</file>
+    <file>cut.png</file>
+    <file>delete.png</file>
+    <file>files.png</file>
+    <file>floppy-disk.png</file>
+    <file>menu.png</file>
+    <file>paint-board-and-brush.png</file>
+    <file>remove.png</file>
+    <file>resistor.png</file>
+    <file>scissors.png</file>
+    <file>sketch.png</file>
+    <file>stop.png</file>
+    <file>tag.png</file>
+    <file>wires.png</file>
+  </qresource>
+</RCC>
