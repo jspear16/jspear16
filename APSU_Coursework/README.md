@@ -1,7 +1,7 @@
 # APSU-Coursework Overview
-Various projects compiled together from different classes throughout my time at Austin Peay State University. This repository serves as a collection of all the projects I deem worthy of sharing with other.
+Various projects compiled together from different classes throughout my time at Austin Peay State University. This repository serves as a collection of all the projects I deem worthy of sharing with others.
 
-This repository is structured by course, and in each course directory, there are various projects. Here is an overview of this repository.
+This repository is structured by course, and in each course directory there are various projects. Listed below is an overview of this repository.
 
 ## CSCI 2000
 Introduction to Computer Programming using c++
@@ -24,7 +24,7 @@ This class is currently ongoing as of 4/27/21. The focus of this class was to ha
 ## ENGR 4000
 Computational Methods
 
-This class was focused on utilizing the fundamental understandings of programming to solve complicated physics problems using numerical methods. With this course, we discussed various different numerical methods and applied them to a number of different problems as well as learned how to manage the systems resources to improve process time.
+This class was focused on utilizing the fundamental understandings of programming to solve complicated physics problems using numerical methods. With this course we discussed various different numerical methods and applied them to a number of different problems, as well as learned how to manage the systems resources to improve process time.
 
 
 ## ENGR 4510-4520
