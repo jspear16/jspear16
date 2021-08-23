@@ -4,4 +4,5 @@ The purpose of this directory is to give a little information about my personal 
 As this is about my personal life, I intend for this directory to be much less formal than the rest of the jspear16 repository.
 
 # Contents
-Currently Empty
+The image below was taken of me and some friends at the Desert View station of the Grand Canyon.
+![image](https://user-images.githubusercontent.com/Grand_Canyon.jpg)
