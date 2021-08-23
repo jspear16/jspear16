@@ -7,6 +7,11 @@ My name is **Joseph Spear**, and I am a recent graduate of Austin Peay State Uni
 - Physics
   - Mechanics
 - Mathematics
+- Engineering
+  - Computer
+  - Software
+  - Electrical
+  - Mechanical
 
 Other interests include:
 - Philosophy / Theology
@@ -14,6 +19,7 @@ Other interests include:
 - Casual Gaming
 - Traveling
 - Hiking
+- Recreational Sports
 
 You can contact me at joseph.spear98@outlook.com
 
