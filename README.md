@@ -2,7 +2,7 @@
 My name is **Joseph Spear**, and I am a recent graduate of Austin Peay State University. I received my *Bachelor's in Engineering Physics* as well as my *Bachelor's in Computer Science* in May of 2021. I currently live in Clarksville Tennessee and my work relavent interests include:
 - Embedded Systems
 - Computer Programming
-- Software Developmetn
+- Software Development
 - Electronics
 - Physics
   - Mechanics
