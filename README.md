@@ -13,6 +13,8 @@ My name is **Joseph Spear**, and I am a recent graduate of Austin Peay State Uni
   - Electrical
   - Mechanical
 
+My primary programming language in which I am comfortable working with is *C++*
+
 Other interests include:
 - Philosophy / Theology
 - Running
