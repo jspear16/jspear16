@@ -6,3 +6,6 @@ As this is about my personal life, I intend for this directory to be much less f
 # Contents
 The image below was taken of me and some friends at the Desert View station of the Grand Canyon.
 ![image](Grand_Canyon.jpg)
+
+One thing I like doing when I have free time is to be in nature. One thing that I have found interest in is Bow Fishing, as shown below.
+![image](Bow_Fishing.jpg)
