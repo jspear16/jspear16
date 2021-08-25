@@ -1,10 +1,10 @@
 # APSU-Coursework Overview
-Various projects compiled together from different classes throughout my time at Austin Peay State University. This repository serves as a collection of all the projects I deem worthy of sharing with others.
+Various projects compiled together from different classes throughout my time at Austin Peay State University. This directory serves as a collection of all the projects I deem worthy of sharing with others.
 
-This repository is structured by course, and in each course directory there are various projects. Listed below is an overview of this repository.
+This directory is structured by course, and in each course directory there are various projects. Listed below is an overview of this directory.
 
 ## CSCI 2000
-Introduction to Computer Programming using c++
+Introduction to Computer Programming using C++
 
 This class was focused on teaching the fundamentals of procedural and object-oriented programming. In this directory, you will find four projects from my introduction to programming class, each one highlighting different programming concepts. 
 
