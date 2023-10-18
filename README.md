@@ -13,7 +13,7 @@ My name is **Joseph Spear**, and I am a recent graduate of Austin Peay State Uni
   - Electrical
   - Mechanical
 
-My primary programming language in which I am most comfortable in working with is *C++*. I am also competent in *C*, *Python*, *BASH Scripting*, *FORTRAN*, *MATLAB*, and have exposure to *Java*, *Mathematica*, and *R*. Other skills can be found on my resume in the *Important_Documents* Directory.
+My primary programming language in which I am most comfortable in working with is *C*. I am also competent in *C++*, *Python*, *BASH Scripting*, *FORTRAN*, *MATLAB*, and have exposure to *Java*, *Mathematica*, and *R*. Other skills can be found on my resume in the *Important_Documents* Directory.
 
 Other interests include:
 - Philosophy / Theology
