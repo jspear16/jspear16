@@ -1,0 +1,56 @@
+html
+{
+    font-size: 22px;
+}
+
+
+/* This is a universal selector. Typically used for a "CSS Reset" */
+*
+{
+    /* font-family: monospace; */
+}
+
+body
+{
+    
+}
+
+main
+{
+    font-family: monospace;
+}
+
+button, input, textarea, select
+{
+    font: inherit;
+}
+
+p
+{
+    color:  purple;
+
+}
+
+/* We can list multiple selectors to apply rules to them at the same time */
+h1, h2
+{
+    color: blue;
+}
+
+.highlight
+{
+    text-transform: uppercase;
+    background-color: gold;
+}
+
+/* This is a "class" selector */
+.gray
+{
+    color: gray;
+}
+
+/* This is an "ID" selector. These are rarely good practice. */
+#second
+{
+    font-style: italic;
+}

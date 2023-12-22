@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html
+{
+    background-color: lightblue;
+}
+
+body
+{
+    padding: 10%;
+    font-size: 1.75rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+ol
+{
+    list-style-type: lower-alpha;
+    padding: 0;
+}
+
+ul
+{
+    list-style-type: square;
+    text-align: center;
+    list-style-position: inside;
+    color: #00f;
+    line-height: 1.6;
+    /* list-style-image: url('../../img/CSS_Logo.png'); */
+    /* list-style: square url('../../img/CSS_Logo.png') inside; */
+}
+
+ul li:nth-child(2)
+{
+    color: red;
+}
+
+ul li:nth-child(1)
+{
+    color: purple;
+}
+
+
+ul ::marker
+{
+    color:red;
+    font-family: fantasy;
+    font-size: 1em;
+    content: "Only $5 >> ";
+}

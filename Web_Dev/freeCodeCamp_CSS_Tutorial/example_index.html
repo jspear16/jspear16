@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- An external stylesheet is brought in via link -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- The "Cascade" part of Cascading Stylesheets essentially means the order in which the styles are read. They "cascade" down procedurally as the file is read. Hence, the code below is read after the link above and it's rules will override the rules above. -->
+    <!-- This is an internal stylesheet (I believe this is the nomenclature) -->
+    <style>
+        /* A CSS comment */
+        p
+        {
+            color: limegreen
+        }
+    </style>
+</head>
+<body>
+    <!-- In-line CSS is not reccommended. If it is done though, then the styling produced from it will take the highest precdence and therefore will override the internal or external stylesheets -->
+    <p style="color: blue">I'm learning CSS!</p>
+</body>
+</html>

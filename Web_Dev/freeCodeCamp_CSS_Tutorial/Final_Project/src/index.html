@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!-- This is the main file for the final project. I am making a website for the little taco shop. -->
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="author" content="Joseph Spear">
+    <meta name="description" content="This is my project for a little website for the little taco shop.">
+    <title>The Little Taco Shop!</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<!-- The visible part of the website -->
+<body>
+    <header>
+        <h1><a href="./index.html">🌮 Joseph's Little Taco Shop 🌮</a></h1>
+
+        <!-- Navigation table -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="./hours.html">Hours</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Top image -->
+        <figure class="fig-img-text">
+            <img src="../img/tacos_and_drink_1000x667.png" alt="Tacos and drink" title="Tacos-Drink" width="1000" height="667">
+            <p class="img-text">Bienvenidos!</p>
+        </figure>
+        <!-- About -->
+        
+        <!-- Menu -->
+        <article id="menu">
+            <h2>Our Menu</h2>
+            <table class="menu">
+                <thead>
+                    <tr>
+                        <th scope="col">Tacos</th>
+                        <th scope="col"><abbr title="Quantity">Qty</abbr></th>
+                        <th scope="col">Price</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <th scope="row" rowspan="3">Crunchy</th>
+                        <td>1</td>
+                        <td>$1.50</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>$2.50</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>$3.25</td>
+                    </tr>
+                    
+                    <tr>
+                        <th scope="row" rowspan="3">Soft</th>
+                        <td>1</td>
+                        <td>$2.00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>$3.50</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>$4.50</td>
+                    </tr>
+                </tbody>
+
+                <tfoot>
+                    <tr>
+                        <td colspan="3">Chips &amp; Salsa $2.00</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </article>
+
+        <br>
+        <!-- Back to top link -->
+        <a href="#" class="back-to-top">Back to Top</a>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright &copy; Joseph's Little Taco Shop</p>
+    </footer>
+
+</body>
+</html>

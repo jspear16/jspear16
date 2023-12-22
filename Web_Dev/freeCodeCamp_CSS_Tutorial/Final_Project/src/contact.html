@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="author" content="Joseph Spear">
+    <meta name="description" content="This is the contact page for the owners of the little taco shop.">
+    <title>The Little Taco Shop!</title>
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+<body>
+    <header>
+        <h1><a href="./index.html">🌮 Joseph's Little Taco Shop 🌮</a></h1>
+
+        <!-- Navigation table -->
+        <nav>
+            <ul>
+                <li><a href="./index.html#menu">Menu</a></li>
+                <li><a href="./hours.html">Hours</a></li>
+                <li><a href="./contact.html">Contact</a></li>
+                <li><a href="./about.html">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="store-info">
+        <figure>
+            <img src="../img/tacos_close_up_400x260.png" alt="Delicious Tacos" title="Delicious-Tacos" width="400" height="260">
+        </figure>
+        <section>
+            <h2>Our Location</h2>
+            <address>
+                123 Ur Mums A Dish Lane, <br>
+                Tarksville, Clennessee 12345
+            </address>
+
+            <br>
+            <em>Phone</em>: <a href="tel:5555555555">555-555-5555</a> 
+            <br><br>
+        </section>
+        <hr><br>
+        <h2>Our Contact Form</h2>
+        <section>
+            <form action="https://httpbin.org/get" method="get">
+                <fieldset>
+                    <p>
+                        <label for="name">Name: </label>
+                        <input type="text" name="name" id="name" placeholder="Your name" autocomplete="on" required >
+                    </p>
+                    <p>
+                        <label for="email">E-mail: </label>
+                        <input type="text" name="email" id="email" placeholder="random@domain.com" autocomplete="on" required >
+                    </p>
+                    <p>
+                        <label for="msg">Your Message: </label>
+                        <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Type your message here"></textarea>
+                    </p>
+                </fieldset>
+
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </form>
+        </section>
+    </main>
+
+    <br>
+    <!-- Back to top link -->
+    <a href="#" class="back-to-top">Back to Top</a>
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright &copy; Joseph's Little Taco Shop</p>
+    </footer>
+
+</body>
+</html>

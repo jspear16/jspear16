@@ -1,0 +1,348 @@
+/*  Joseph Spear - 12/20/23 
+	This is the main css file for the CSS Final Project
+*/
+
+/* <<< IMPORTS >>> */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@500&family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Nunito:wght@500&family=Roboto&display=swap');
+
+/* <<< RESETS >>> */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* <<< VARIABLES >>> */
+:root {
+	--FS: 				1.5rem;
+	--FF: 				'Nunito', sans-serif;
+
+	--FS-TITLE: 		4rem;
+	--FF-TITLE: 		'Fugaz One', sans-serif;
+
+	--PRIMARY-BGCOLOR:	linear-gradient(#000, #555);
+	--PRIMARY-COLOR:	whitesmoke;
+	--BORDER-COLOR:		#333;
+
+	--BORDERS:			1px solid var(--BORDER-COLOR);
+	--BORDER-RADIUS:	15px;
+}
+
+/* <<< DARK MODE GLOBALS >>> */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--PRIMARY-BGCOLOR:		linear-gradient(#000, #555);
+		--PRIMARY-COLOR:	whitesmoke;
+		--BORDER-COLOR:		whitesmoke;
+	
+		--BORDERS:			1px solid var(--BORDER-COLOR);
+		--BORDER-RADIUS:	15px;
+	}
+}
+
+/* <<< UTILITY CLASSES >>> */
+.offscreen {
+    position: absolute;
+    left: -10000px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}
+
+/* <<< MAJOR ELEMENTS >>> */
+
+html {
+	scroll-behavior: smooth;
+	font-family: var(--FF);
+}
+
+body {
+	margin: 0 6rem;
+	background-image: var(--PRIMARY-BGCOLOR);
+	color: var(--PRIMARY-COLOR);
+
+    border-left: var(--BORDERS);
+    border-right: var(--BORDERS);
+    box-shadow: 0 0 10px var(--BORDER-COLOR);
+
+}
+
+/* <<< HEADER ELEMENTS >>> */
+
+header {
+	min-width: 100%;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-start;
+	align-items: center;
+
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background-color: black;
+
+	max-width: 100vh;
+    box-shadow: 0 0 10px var(--BORDER-COLOR);
+	border-bottom: var(--BORDERS);
+}
+
+header h1 {
+	min-width: 100%;
+	display: flex;
+	flex-grow: 1;
+	align-items: stretch;
+	justify-content: center;
+
+	font-family: var(--FF-TITLE);
+	letter-spacing: 0.175rem;
+	line-height: 5rem;
+	font-weight:900;
+}
+header h1 a:any-link {
+	font-size: inherit;
+	text-decoration: none;
+	color: inherit;
+}
+
+header nav {
+	line-height: 60px;
+	width: 100%;
+	/* background-color: transparent(1); */
+}
+
+header ul {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+header li {
+	display: flex;
+}
+
+a {
+	color: var(--PRIMARY-COLOR);
+	font-weight: bold;
+	font-size: 1.5rem;
+}
+
+a:hover {
+	color: hsl(39, 100%, 50%)
+}
+
+a:active {
+	color: hsl(39, 100%, 65%)
+}
+
+/* <<< MAIN ELEMENTS >>> */
+
+main {
+	min-height: 100vh;
+}
+
+main img {
+	width: 100%;
+	height: 100%;
+}
+
+main article {
+	padding: 15px;
+}
+
+main h2 {
+	font-size: 2rem;
+	font-family: var(--FF-TITLE);
+	letter-spacing: 0.5rem;
+}
+
+main p, main aside {
+	font-size: xx-large;
+	margin-bottom: 2rem;
+}
+
+main dl {
+	font-size: 1.65rem;
+}
+
+/* <<< MENU CLASSES >>> */
+
+
+.menu {
+	min-width: 100%;
+	font-size: 1.65rem;
+	margin: 1rem 0.5rem;
+}
+
+.menu table,
+.menu th,
+.menu td {
+	min-width: 100%;
+	height: 80px;
+	/* padding: 10px;
+	margin: 20px; */
+	border: 3px ridge var(--BORDER-COLOR);
+}
+
+.menu th {
+	font-size: 1.9rem;
+}
+
+.menu td {
+	text-align: center;
+}
+
+.menu thead th:first-child {
+	border-top-left-radius: 15px;
+}
+.menu thead th:last-child {
+	border-top-right-radius: 15px;
+}
+
+.menu tfoot td {
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+
+}
+
+
+/* <<< FOOTER ELEMENTS >>> */
+
+footer {
+	display: flex;
+	justify-content: center;
+	
+	position: sticky;
+	bottom: 0;
+	z-index: 1;
+
+	font-size: 1.75rem;
+	background-color: black;
+	color: var(--PRIMARY-COLOR);
+
+	border-top: var(--BORDERS);
+    /* box-shadow: 0 0 10px var(--BORDER-COLOR); */
+}
+
+/* <<< OTHER CLASSES >>> */
+
+.back-to-top {
+	font-weight: normal;
+	display: flex;
+	justify-content: center;
+	padding-top: 10px;
+	padding-bottom: 30px;
+}
+
+.fig-img-text {
+	position: relative;
+	text-align: center;
+	color: white;
+}
+
+.img-text {
+	animation-name: appear;
+	animation-duration: 2s;
+	animation-timing-function:ease;
+	animation-fill-mode: forwards;
+
+	position: absolute;
+	top: 8%;
+	left: 7%;
+
+	padding: 8px 15px;
+
+	font-family: var(--FF-TITLE);
+	font-size: 2.2rem;
+	letter-spacing: 3.8px;
+	background-color: rgba(17, 167, 17, 0.583);
+	color: rgb(40, 58, 8);
+
+	border-radius: 3px;
+
+	text-shadow: 2px 2px 5px whitesmoke;
+}
+
+.store-info {
+	padding: 15px 15px;
+}
+
+.store-info label {
+	font-weight: bold;
+	font-size: 1.55rem;
+}
+
+.store-info a:any-link {
+	font-size: inherit;
+	font-weight: normal;
+}
+
+.store-info fieldset {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: flex-start;
+
+	border: none;
+}
+.store-info fieldset p {
+	display: flex;
+	flex-flow: column nowrap;
+	align-items: center;
+
+	min-width: 100%;
+}
+.store-info fieldset input {
+	min-width: 100%;
+	padding: 14px 3px;
+	border-radius: 12px;
+	font-size: 1.25rem;
+}
+.store-info fieldset label {
+	align-self: flex-start;
+}
+.store-info fieldset textarea {
+	min-width: 100%;
+	padding: 14px 3px;
+	border-radius: 12px;
+	font-size: 1.25rem;
+}
+.store-info button {
+	padding: 14px 6px;
+	font-size: 1.25rem;
+	font-weight: bolder;
+
+	border-radius: 12px;
+}
+
+
+
+
+/* <<< MEDIA QUERIES >>> */
+
+@keyframes appear {
+	0% {
+		transform: scaleY(0);
+	}
+	80% {
+		transform: scaleY(0);
+	}
+	90% {
+		transform: rotate(-7deg) skew(-12deg) scaleY(0.001);
+	}
+	100% {
+		transform: rotate(-7deg) skew(-12deg) scaleY(1);
+	}
+}
+
+@media screen and (max-width: 576px) {
+	header h1 {
+		color: red;
+	}
+}
